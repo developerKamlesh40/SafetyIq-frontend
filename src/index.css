@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-safety-border;
+  }
+  body {
+    @apply bg-safety-navy text-safety-text;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-safety-border rounded-full;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-safety-card/80 backdrop-blur-sm border border-safety-border rounded-lg;
+  }
+  .gradient-border {
+    @apply relative;
+  }
+  .gradient-border::after {
+    content: '';
+    @apply absolute inset-0 rounded-lg p-[1px] bg-gradient-to-r from-safety-cyan/20 to-transparent;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
+  .risk-low { @apply text-safety-green; }
+  .risk-medium { @apply text-safety-amber; }
+  .risk-high { @apply text-safety-red; }
+  .risk-critical { @apply text-red-400 animate-pulse; }
+}
