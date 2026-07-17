@@ -9,7 +9,8 @@ import {
   Clock, Zap, Target, Brain, CheckCircle2, XCircle,
 } from 'lucide-react';
 
-const api = axios.create({ baseURL: '/api' });
+const api = axios.create({ baseURL: 'https://safety-iq-backend.vercel.app/api' });
+// const api = axios.create({ baseURL: '/api' }); // Localhost via proxy
 api.interceptors.request.use((cfg) => {
   const token = localStorage.getItem('token');
   if (token) cfg.headers.Authorization = `Bearer ${token}`;
