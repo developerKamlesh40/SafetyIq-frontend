@@ -10,7 +10,6 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "@safetyiq/shared": "*",
     "@tanstack/react-query": "^5.62.0",
     "axios": "^1.7.9",
     "class-variance-authority": "^0.7.1",
