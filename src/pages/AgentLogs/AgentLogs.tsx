@@ -1,6 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
 import { Card } from '../../components/ui/card';
 import { Badge } from '../../components/ui/badge';
 import {
@@ -8,14 +7,7 @@ import {
   FileBarChart, Activity, Play, RefreshCw, ChevronDown, ChevronUp,
   Clock, Zap, Target, Brain, CheckCircle2, XCircle,
 } from 'lucide-react';
-
-const api = axios.create({ baseURL: 'https://safety-iq-backend.vercel.app/api' });
-// const api = axios.create({ baseURL: '/api' }); // Localhost via proxy
-api.interceptors.request.use((cfg) => {
-  const token = localStorage.getItem('token');
-  if (token) cfg.headers.Authorization = `Bearer ${token}`;
-  return cfg;
-});
+import api from '../../config/api';
 
 const AGENT_ICONS: Record<string, any> = {
   'Sensor Agent': Radio,
