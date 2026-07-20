@@ -5,7 +5,7 @@ import axios from 'axios';
 //    true  → localhost:5000 (via Vite proxy)
 //    false → Vercel production backend
 // ============================================================
-const USE_LOCAL = true;
+const USE_LOCAL = false;
 
 const VERCEL_URL = 'https://safety-iq-backend.vercel.app';
 
